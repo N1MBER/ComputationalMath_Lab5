@@ -213,35 +213,20 @@ def make_graph(calculator):
         plt.grid()
         ax.spines['top'].set_visible(False)
         ax.spines['right'].set_visible(False)
-        equations = {1: "f(x) = x^3 - 2x^2 + 8x",
-                     2: "f(x) = sin(x) + 2",
-                     3: "f(x) = 2/x + x/2",
-                     4: "f(x) = e^2x - 2"}
-        plt.title("Graphic of " + equations[calculator.equation_type])
-        if len(calculator.dots_x) == 0:
-            x = np.linspace(min(calculator.x_values), max(calculator.x_values), 100)
-        else:
-            minimum = min(calculator.x_values)
-            maximum = max(calculator.x_values)
-            for i in calculator.dots_x:
-                if i < minimum:
-                    minimum = i
-                elif i > maximum:
-                    maximum = i
-            x = np.linspace(minimum, maximum, 100)
+        minimum = min(calculator.x_values)
+        maximum = max(calculator.x_values)
+        for i in calculator.dots_x:
+            if i < minimum:
+                minimum = i
+            elif i > maximum:
+                maximum = i
+        x = np.linspace(minimum, maximum, 100)
         first_equation = [calculator.calculate(i) for i in x]
-        # second_equation = [get_function_value(calculator.equation_type, k) for k in x]
-        plt.plot(x, first_equation, color='b', linewidth=2)
-        # plt.plot(x, second_equation, color='r', linewidth=2)
+        plt.plot(x, first_equation, color='r', linewidth=2)
         j = 0
         for i in calculator.x_values:
-            plt.scatter(i, calculator.y_graph_values[j], color='b', s=40)
+            plt.scatter(i, calculator.y_graph_values[j], color='r', s=40)
             j += 1
-        k = 0
-        if len(calculator.dots_x) != 0:
-            for i in calculator.dots_x:
-                plt.scatter(i, calculator.dots_y[k], color='g', s=80)
-                k += 1
         plt.show()
         del x
     except ValueError:
