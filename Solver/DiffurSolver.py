@@ -28,6 +28,7 @@ class DiffurSolver:
     def start(self):
         self.count_of_steps = abs(self.end - self.x) / self.step
         i = 0
+        print(self.count_of_steps)
         while i <= self.count_of_steps:
             try:
                 self.x_values.append(self.x)
@@ -38,8 +39,12 @@ class DiffurSolver:
                 i += 1
             except ZeroDivisionError:
                 self.y = self.y + self.step * self.get_value_of_derivative(self.x + 1e-9, self.y)
+                self.x = round(self.x + self.step, 8)
                 i += 1
                 continue
+
+    # def set_value_on_table(self):
+
 
     def get_value_of_derivative(self, x, y):
         if self.type_equation == 1:
