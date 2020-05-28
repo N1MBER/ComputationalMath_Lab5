@@ -43,14 +43,11 @@ class DiffurSolver:
                 i += 1
                 continue
 
-    # def set_value_on_table(self):
-
-
     def get_value_of_derivative(self, x, y):
         if self.type_equation == 1:
             return y + (1 + x) * np.power(y, 2)
         elif self.type_equation == 2:
-            return np.power(np.e, 2 * x) - 2 * x * y
+            return np.power(np.e, 2 * x) + y
         elif self.type_equation == 3:
             return y / x - 3
         elif self.type_equation == 4:

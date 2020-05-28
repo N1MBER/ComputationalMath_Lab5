@@ -35,7 +35,7 @@ class ConsoleWorker:
     def chooseType(self):
         print("Please choose a equation:\n"
               "\t1. y' = y + (1+x)y^2\n"
-              "\t2. y' = e^2x - 2xy\n"
+              "\t2. y' = e^2x + y\n"
               "\t3. y' = y/x - 3\n"
               "\t4. y' = y(x+1)^3")
         while 1:

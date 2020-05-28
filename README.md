@@ -4,6 +4,6 @@
 
 Available equations to solve:
 * y' = y + (1+x)y^2
-* y' = e^2x - 2xy
+* y' = e^2x + y
 * y' = y/x - 3
 * y' = y(x+1)^3
