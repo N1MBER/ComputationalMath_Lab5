@@ -37,7 +37,7 @@ class ConsoleWorker:
               "\t1. y' = y + (1+x)y^2\n"
               "\t2. y' = e^2x + y\n"
               "\t3. y' = y/x - 3\n"
-              "\t4. y' = y(x+1)^3")
+              "\t4. y' = x^2 - 2y")
         while 1:
             try:
                 answer = int(input("Type: ").strip())
@@ -122,5 +122,5 @@ def print_table(table_value):
 
 def make_interpolation(solver):
     interpolator = Interpolation.Interpolator(solver.x_values, solver.y_values, 1)
-    interpolator.start()
-    ServiceWorker.make_graph(interpolator)
+    interpolator.finite_differences()
+    ServiceWorker.make_graph(interpolator, solver.type_equation)

@@ -51,7 +51,7 @@ class DiffurSolver:
         elif self.type_equation == 3:
             return y / x - 3
         elif self.type_equation == 4:
-            return y * np.power(x + 1, 3)
+            return np.power(x, 2) - 2*y
 
     def calculate(self, x, y, step):
         try:
